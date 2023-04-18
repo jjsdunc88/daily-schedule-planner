@@ -1,38 +1,43 @@
 
 
 
+var dateTime = function() {
+  $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
+  console.log("test");
+}
+setInterval(dateTime, 15000);
+
+
+
+var container = $(".container-lg")
+container.on("click", ".saveBtn", function(event){
+  var lineHour = $(event.target).parent().val($(this).attr("data-time"))
+  var hour = parseInt(lineHour.attr("data-time"))
+  console.log(lineHour);
+  console.log(hour);
+  task = lineHour.children(".description").val()
+  console.log(task);
+});
+ 
+
+
+
+// var saveBtn = document.querySelector(".saveBtn");
+// saveBtn.addEventListener("click", function() { 
+// });
+
+
+
 
 $(function () {
  
-
-   
-
-  $(".saveBtn").click(function(){
-   console.log("Hello");
-    
-
-   
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 
 //  Add code to display the current date in the header of the page.
-$('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
+// $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
  
 });
 
