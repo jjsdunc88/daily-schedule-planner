@@ -1,6 +1,6 @@
 
 
-
+//Interval to check and refresh time & date display
 var dateTime = function() {
   $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
   console.log("test");
@@ -8,7 +8,7 @@ var dateTime = function() {
 setInterval(dateTime, 15000);
 
 
-
+//Target textarea container, log value on save button click
 var container = $(".container-lg")
 container.on("click", ".saveBtn", function(event){
   var lineHour = $(event.target).parent().val($(this).attr("data-time"))
@@ -19,6 +19,11 @@ container.on("click", ".saveBtn", function(event){
   console.log(task);
 });
  
+
+// `let savedSchedule = {
+//   "hour": hour,
+//   "task": task
+//   }`
 
 
 
