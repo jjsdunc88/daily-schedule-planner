@@ -3,9 +3,9 @@
 //Interval to check and refresh time & date display
 var dateTime = function() {
   $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
-  console.log("test");
+  colorCode()
 }
-setInterval(dateTime, 15000);
+setInterval(dateTime, 1000);
 
 
 //Target textarea container, log value on save button click
@@ -18,18 +18,40 @@ container.on("click", ".saveBtn", function(event){
   task = lineHour.children(".description").val()
   console.log(task);
 });
+
+// iterate through each children on an elemnt selected by jquery
  
 
 // `let savedSchedule = {
 //   "hour": hour,
 //   "task": task
 //   }`
+//know what the current time
+function colorCode(){
+  var currentTime = $('#currentDay').text()
+  var currentHourBase = parseInt(currentTime.split(":")[0].slice(-2).trim())
+  if(currentTime.search(/PM/)){
+    console.log("it's nighttime")
+    currentHourBase += 12
+  } 
+  container.children().each(function(){
+    if(currentHourBase > $(this).attr("data-time")){
+      $(this).addClass("past")
+    }
+     else if (currentHourBase == $(this).attr("data-time")){
+      $(this).addClass("present")
+    } else{
+      $(this).addClass("future")
+    }
+  })
+}
 
 
 
-// var saveBtn = document.querySelector(".saveBtn");
-// saveBtn.addEventListener("click", function() { 
-// });
+
+var saveBtn = document.querySelector(".saveBtn");
+saveBtn.addEventListener("click", function() { 
+});
 
 
 
@@ -41,14 +63,14 @@ $(function () {
 
 
 
-//  Add code to display the current date in the header of the page.
-// $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
+ 
+$('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
  
 });
 
 
 
-
+// colorCode()
 
 
 // $(document).ready(function(){ - recommended by tutor to start jquery
