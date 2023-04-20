@@ -21,15 +21,9 @@ container.on("click", ".saveBtn", function(event){
 
 // iterate through each children on an elemnt selected by jquery
  
-
-// `let savedSchedule = {
-//   "hour": hour,
-//   "task": task
-//   }`
-//know what the current time
 function colorCode(){
-  var currentTime = $('#currentDay').text()
-  var currentHourBase = parseInt(currentTime.split(":")[0].slice(-2).trim())
+  var currentTime = $('#currentDay').text();
+  var currentHourBase = parseInt(currentTime.split(":")[0].slice(-2).trim());
   if(currentTime.search(/PM/)){
     console.log("it's nighttime")
     currentHourBase += 12
@@ -47,8 +41,6 @@ function colorCode(){
 }
 
 
-
-
 var saveBtn = document.querySelector(".saveBtn");
 saveBtn.addEventListener("click", function() { 
 });
@@ -56,14 +48,12 @@ saveBtn.addEventListener("click", function() {
 
 
 
+
+
+
+
 $(function () {
- 
- 
-
-
-
-
- 
+  
 $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
  
 });
