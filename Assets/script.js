@@ -9,15 +9,58 @@ setInterval(dateTime, 1000);
 
 
 //Target textarea container, log value on save button click
-var container = $(".container-lg")
-container.on("click", ".saveBtn", function(event){
-  var lineHour = $(event.target).parent().val($(this).attr("data-time"))
-  var hour = parseInt(lineHour.attr("data-time"))
-  console.log(lineHour);
-  console.log(hour);
-  task = lineHour.children(".description").val()
-  console.log(task);
+// var container = $(".container-lg")
+// container.on("click", ".saveBtn", function(event){
+//   var lineHour = $(event.target).parent().val($(this).attr("data-time"))
+//   var hour = parseInt(lineHour.attr("data-time"))
+//   console.log(lineHour);
+//   console.log(hour);
+//   task = lineHour.children(".description").val()
+//   console.log(task);
+// });
+
+
+var container = $(".container-lg");
+var appointmentArray = [];
+var tempArray = [];
+var saveBtn = document.querySelector(".saveBtn");
+$(".saveBtn").click(function (event) {
+var w = event.currentTarget.parentElement.id;
+var x = event.currentTarget.previousSibling;
+var y = x.previousSibling;
+var z = y.value;
+console.log(w);
+console.log(x);
+console.log(y);
+console.log(z);
+tempArray = {
+  blockId: w,
+  appt: z,
+};
+appointmentArray.push(tempArray);
+storeData();
 });
+
+
+function storeData() {
+  console.log(appointmentArray);
+  localStorage.setItem("blockText", JSON.stringify(appointmentArray));
+  displayData();
+}
+
+function displayData() {
+  appointmentArray = JSON.parse(localStorage.getItem("blockText"));
+  for (var i = 0; i < appointmentArray.length; i++) {
+    var a = document.getElementById(appointmentArray[i].blockId);
+    console.log(a);
+    var b = a.children[1].value;
+    console.log(b);
+  }
+}
+
+
+
+
 
 // iterate through each children on an elemnt selected by jquery
  
@@ -41,9 +84,9 @@ function colorCode(){
 }
 
 
-var saveBtn = document.querySelector(".saveBtn");
-saveBtn.addEventListener("click", function() { 
-});
+// // var saveBtn = document.querySelector(".saveBtn");
+// saveBtn.addEventListener("click", function() { 
+// });
 
 
 
