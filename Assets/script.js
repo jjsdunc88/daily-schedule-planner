@@ -59,13 +59,15 @@ function displayData() {
 }
 
 function renderData() {
+  if (localStorage !== null) {
   appointmentArray = JSON.parse(localStorage.getItem("blockText"));
   for (var i = 0; i < appointmentArray.length; i++) {
     var a = document.getElementById(appointmentArray[i].blockId);
-    console.log(a);
+    // console.log(a);
     var b = a.children[1];
     b.textContent = appointmentArray[i].appt;
   }
+}
 }
 
 function init() {
@@ -141,4 +143,3 @@ $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY h:mm A'));
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  
