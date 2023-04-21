@@ -42,7 +42,7 @@ function storeData() {
 
 
 function renderData() {
-  if (localStorage !== null) {
+  if (localStorage.length > 0) {
   appointmentArray = JSON.parse(localStorage.getItem("blockText"));
   for (var i = 0; i < appointmentArray.length; i++) {
     var a = document.getElementById(appointmentArray[i].blockId);
