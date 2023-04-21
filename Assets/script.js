@@ -58,6 +58,21 @@ function displayData() {
   }
 }
 
+function renderData() {
+  appointmentArray = JSON.parse(localStorage.getItem("blockText"));
+  for (var i = 0; i < appointmentArray.length; i++) {
+    var a = document.getElementById(appointmentArray[i].blockId);
+    console.log(a);
+    var b = a.children[1];
+    b.textContent = appointmentArray[i].appt;
+  }
+}
+
+function init() {
+  renderData();
+}
+
+init();
 
 
 
