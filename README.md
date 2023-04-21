@@ -15,7 +15,7 @@ Demo:
 
 
 
-[Click here for live website]()
+[Click here for live website](https://jjsdunc88.github.io/daily-schedule-planner/)
 
 
 ## Credits
